@@ -33,9 +33,10 @@ public class PlayerMove : MonoBehaviour
 
         MovementInput();
         SpeedControl();
+        MovePlayer();
 
         //Handling drag of player if they are on ground (they should never leave the ground but just in case)
-        if(isGrounded)
+        if (isGrounded)
         {
             playerRB.linearDamping = groundDrag;
         }
@@ -43,11 +44,6 @@ public class PlayerMove : MonoBehaviour
         {
             playerRB.linearDamping = 0;
         }
-    }
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
     }
 
     private void MovementInput()

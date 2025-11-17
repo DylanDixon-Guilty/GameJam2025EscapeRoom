@@ -220,7 +220,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6429820647348399353}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -271,20 +271,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8d087f06c6c3b47a37979e0a777af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractivity
-  playerInteract:
-    m_Name: Player Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 5ab6bb5f-ef70-4ea1-b720-d783459ffe9f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 0badbb9c-a3d6-4042-a1e9-1b73332becc7
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Interact
-      m_Flags: 0
-    m_Flags: 0
+  isInteractable: 0
+  interactButton: {fileID: 0}

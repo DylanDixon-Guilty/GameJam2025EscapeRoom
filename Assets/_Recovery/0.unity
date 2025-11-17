@@ -545,10 +545,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlidingImage_Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6682022631969347770, guid: b1eacb3207ad17543b7770ffd86ef43c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6838873194629197024, guid: b1eacb3207ad17543b7770ffd86ef43c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
