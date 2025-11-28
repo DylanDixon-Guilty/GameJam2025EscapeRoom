@@ -23,7 +23,7 @@ public class TimerManager : MonoBehaviour
     {
         if(isTimerStart)
         {
-            if (elapsedTime > 0)
+            if (elapsedTime >= 0)
             {
                 elapsedTime -= Time.deltaTime;
                 int minutes = Mathf.FloorToInt(elapsedTime / 60);
