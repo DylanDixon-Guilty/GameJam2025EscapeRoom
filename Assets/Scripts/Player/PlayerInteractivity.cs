@@ -36,7 +36,7 @@ public class PlayerInteractivity : MonoBehaviour
         timerUI.SetActive(false);
     }
 
-    public void Update()
+    public void LateUpdate()
     {
         if(Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
         {

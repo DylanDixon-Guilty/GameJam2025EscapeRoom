@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,11 +11,17 @@ public class GameManager : MonoBehaviour
     public bool IsPuzzleOver;
     public bool IsKeyPickedUp;
     public GameObject KeyToDoor;
-    public static readonly int numRows = 3;
-    public static readonly int numCols = 3;
 
     [SerializeField] private Transform keySpawnLocation;
-    [SerializeField] private LightsOutManager[,] tiles = new LightsOutManager[numRows, numCols];
+
+    [Header("Game Setup for Puzzles")]
+    [SerializeField] private Transform puzzleLocation;
+    [SerializeField] private GameObject puzzle01;
+    [SerializeField] private GameObject puzzle02;
+
+    [Header("Rigging Puzzle")]
+    [SerializeField] private bool isPuzzleRigged;
+    [SerializeField] private int riggedPuzzle;
 
     private void Awake()
     {
@@ -26,6 +33,25 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        int randomPuzzle = UnityEngine.Random.Range( 1, 2 );
+
+        if (isPuzzleRigged)
+        {
+            randomPuzzle = riggedPuzzle;
+        }
+
+        if (randomPuzzle == 1)
+        {
+            puzzle01 = Instantiate(puzzle01, puzzleLocation, puzzleLocation);
+        }
+        else
+        {
+            puzzle02 = Instantiate(puzzle02, puzzleLocation);
         }
     }
 

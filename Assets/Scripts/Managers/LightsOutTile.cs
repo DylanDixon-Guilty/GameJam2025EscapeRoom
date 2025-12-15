@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public class LightsOutManager : MonoBehaviour
+public class LightsOutTile : MonoBehaviour
 {
     [SerializeField] private MeshRenderer tileRenderer;
 
     [Header("Tile Properties")]
-    [SerializeField] private Material lightOff; // Will look black
+    [SerializeField] private Material lightOff; // Will look Dark blue
     [SerializeField] private Material lightOn; // Will look light blue
 
-    private bool isOn = false;
+    private bool isOn = true;
+    private LightsOutSpawner lightsOutSpawner;
 
     private void Start()
     {
+        lightsOutSpawner = GetComponentInParent<LightsOutSpawner>();
+
         UpdateDisplayState();
     }
 
@@ -41,6 +44,9 @@ public class LightsOutManager : MonoBehaviour
         UpdateDisplayState();
     }
 
+    /// <summary>
+    /// To see if the light is on and check if the puzzle is complete
+    /// </summary>
     public bool IsLightOn()
     {
         return isOn;
@@ -50,7 +56,7 @@ public class LightsOutManager : MonoBehaviour
     {
         if (PlayerInteractivity.IsInteracting)
         {
-            Toggle();
+            lightsOutSpawner.OnTileClicked(this.transform);
         }
     }
 }
