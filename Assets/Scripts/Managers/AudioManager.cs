@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip explosion;
     public AudioClip footSteps;
     private int mainScene = 0;
+    private int loseScene = 2;
+    private bool exploded = false;
     private static AudioManager audioManagerInstance;
     Scene scene;
 
@@ -26,6 +28,12 @@ public class AudioManager : MonoBehaviour
         if (scene.buildIndex != mainScene)
         {
             music.Stop();
+        }
+        
+        if (scene.buildIndex == loseScene && exploded == false)
+        {
+            sfx.PlayOneShot(explosion, 1.0f);
+            exploded = true;
         }
     }
 }
