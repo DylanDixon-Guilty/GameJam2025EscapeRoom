@@ -10,8 +10,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip museumSong;
     public AudioClip explosion;
     public AudioClip footSteps;
-    private int mainScene = 0;
-    private int loseScene = 2;
+    private int mainScene = 1;
+    private int loseScene = 3;
     private bool exploded = false;
     private static AudioManager audioManagerInstance;
     Scene scene;
