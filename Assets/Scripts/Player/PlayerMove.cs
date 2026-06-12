@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
         playerRB.freezeRotation = true;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         //This will check if the player is on the ground to ensure there is drag to the player
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);

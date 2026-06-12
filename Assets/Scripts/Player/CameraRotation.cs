@@ -18,9 +18,18 @@ public class CameraRotation : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        Rotation();
+        float inputX = Input.GetAxis(mouseAxisX) * mouseSensitivityX * Time.deltaTime;
+        float inputY = Input.GetAxis(mouseAxisY) * mouseSensitivityY * Time.deltaTime;
+
+        VerticalRotationY += inputX; //To rotate camera left and right
+        HorizontalRotationX -= inputY; //To rotate camera up and Down
+        HorizontalRotationX = Mathf.Clamp(HorizontalRotationX, -90f, 90f);
+
+        transform.rotation = Quaternion.Euler(HorizontalRotationX, VerticalRotationY, 0);
+        player.rotation = Quaternion.Euler(0, VerticalRotationY, 0);
+        //Rotation();
     }
 
     private void Rotation()
